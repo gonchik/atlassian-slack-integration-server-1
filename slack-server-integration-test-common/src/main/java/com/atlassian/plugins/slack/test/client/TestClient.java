@@ -38,6 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import static com.github.seratch.jslack.app_backend.SlackSignature.HeaderNames.X_SLACK_REQUEST_TIMESTAMP;
 import static com.github.seratch.jslack.app_backend.SlackSignature.HeaderNames.X_SLACK_SIGNATURE;
@@ -83,6 +84,10 @@ public class TestClient {
                                 userCredentials.getUsername(),
                                 userCredentials.getPassword()))
                         .build()))
+                // after the product instance has started first request may take a lot
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
                 .build();
     }
 
