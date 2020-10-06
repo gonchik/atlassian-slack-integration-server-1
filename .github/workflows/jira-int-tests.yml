@@ -47,5 +47,5 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: failure()
         with:
-          name: webdriver-screenshots-jira-${{ github.event.inputs.product-version }}-java-${{ matrix.java-version }}
+          name: webdriver-screenshots-jira-${{ github.event.inputs.product-version }}-java-${{ github.event.inputs.java-version }}
           path: jira-slack-server-integration/jira-slack-server-integration-plugin/target/webdriverTests/**

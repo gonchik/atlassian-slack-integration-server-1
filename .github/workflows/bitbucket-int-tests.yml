@@ -43,5 +43,5 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: failure()
         with:
-          name: webdriver-screenshots-bitbucket-${{ github.event.inputs.product-version }}-java-${{ matrix.java-version }}
+          name: webdriver-screenshots-bitbucket-${{ github.event.inputs.product-version }}-java-${{ github.event.inputs.java-version }}
           path: bitbucket-slack-server-integration-plugin/target/webdriverTests/**
